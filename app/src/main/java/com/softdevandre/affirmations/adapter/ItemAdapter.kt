@@ -3,6 +3,7 @@ package com.softdevandre.affirmations.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.softdevandre.affirmations.databinding.ListItemBinding
@@ -21,6 +22,7 @@ class ItemAdapter(private val context: Context, private val dataset: List<Affirm
     class ItemViewHolder(private val binding: ListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val textView: TextView = binding.tvItemTitle
+        val imageView: ImageView = binding.ivItemImage
     }
 
     /**
@@ -39,6 +41,7 @@ class ItemAdapter(private val context: Context, private val dataset: List<Affirm
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.stringResourceId)
+        holder.imageView.setImageResource(item.imageResourceId)
     }
 
     /**
